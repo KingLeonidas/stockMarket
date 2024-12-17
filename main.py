@@ -12,13 +12,13 @@ def addStock(name,ticker,sector,numOfShares):
     portfolio.append(newStock)
 
 def viewPortfolio():
-    print("{0:20s}{1:10s}{2:25s}{3:25s}{4:6s}{5:10s}".format("Name of Stock","Ticker","Industry","Price","QTY","Gain/Loss"))
+    print("{0:20s}{1:10s}{2:35s}{3:14s}{4:6s}{5:10s}".format("Name of Stock","Ticker","Industry","Price","QTY","Gain/Loss"))
     count =1
     for stock in portfolio:
-        print(f"{count}. {stock.name:{17}}{stock.ticker:{10}}{stock.sector:{25}}${stock.currentPrice:{8}}{stock.numOfShares:{6}}")
+        print(f"{count}. {stock.name:{17}}{stock.ticker:{10}}{stock.sector:{35}}${stock.currentPrice:{12}}{stock.numOfShares:{6}}")
         count+=1
 
-for  i in range(5):
+for  i in range(2):
     name =input("Enter the Name of the Stock: ")
     ticker = input("Enter the stock ticker name: ")
     tick = yf.Ticker(ticker).info
