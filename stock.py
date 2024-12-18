@@ -3,9 +3,11 @@ class Stock:
         self.name =name
         self.ticker=ticker
         self.sector =sector
-        self.originalPrice = originalPrice
+        self.originalPrice = float(originalPrice)
         self.numOfShares =numOfShares
-        self.currentPrice =originalPrice
+        self.currentPrice =float(originalPrice)
+        self.gain=0
 
     def updatePrice(self,updatedValue):
         self.currentPrice =updatedValue
+        self.gain = self.currentPrice - self.originalPrice

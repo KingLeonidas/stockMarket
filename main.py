@@ -3,6 +3,7 @@ from yahoo_fin import stock_info
 import yfinance as yf
 import warnings
 warnings.filterwarnings("ignore")
+import os
 
 portfolio =[]
 
@@ -15,6 +16,7 @@ def updatePrices():
     for stock in portfolio:
         price = stock_info.get_live_price(stock.ticker)
         stock.currentPrice = round(float(price),2)
+        stock.gain = round((stock.currentPrice - stock.originalPrice)*stock.numOfShares,2)
 
 
 def viewPortfolio():
@@ -22,7 +24,7 @@ def viewPortfolio():
     count =1
     for stock in portfolio:
         # implement the gain/loss algorithm
-        print(f"{count}. {stock.name:{17}}{stock.ticker:{10}}{stock.sector:{35}}${stock.currentPrice:{12}}{stock.numOfShares:{6}}")
+        print(f"{count}. {stock.name:{17}}{stock.ticker:{10}}{stock.sector:{35}}${stock.currentPrice:{12}}{stock.numOfShares:{6}}{stock.gain:{6}}")
         count+=1
 
 def mainMenu():
@@ -56,6 +58,8 @@ while(status):
         viewPortfolio()
     elif choice =="5":
         status =False
+    input("Press 'enter' to continue...")
+    os.system('clear')
 print("Thanks for using my stock portfolio program. Have a nice day!")
 
 
