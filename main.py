@@ -35,7 +35,7 @@ def mainMenu():
     print("4. View portfolio")
     print("5. Exit program")
 
-print("Welcome to The Stock Portfolio")
+print("Welcome to The Stock Portfolio 2")
 
 status =True
 
